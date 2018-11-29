@@ -23,11 +23,11 @@ class Retina(IMDB):
         :param dataset_path: data and results
         :return: imdb object
         """
-        image_set_main_folder, image_set_sub_folder= image_set.split('_', 1)
+        #image_set_main_folder, image_set_sub_folder= image_set.split('_', 1)
         super(Retina, self).__init__('retina', image_set, root_path, dataset_path, result_path)  # set self.name
 
-        self.image_set_main_folder = image_set_main_folder
-        self.image_set_sub_folder = image_set_sub_folder
+        self.image_set_main_folder = dataset_path
+        self.image_set_sub_folder = image_set
         self.root_path = root_path
         self.data_path = dataset_path
         self.num_classes = num_classes
