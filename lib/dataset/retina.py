@@ -45,7 +45,7 @@ class Retina(IMDB):
         find out which indexes correspond to given image set
         :return: the indexes of given image set
         """
-
+        '''
         #Collection all subfolders
         image_set_main_folder_path = os.path.join(self.data_path, self.image_set_main_folder, self.image_set_sub_folder)
         print 'image_set_main_folder_path:'+image_set_main_folder_path
@@ -62,7 +62,16 @@ class Retina(IMDB):
                 valid_index_count += 1
 
         return index_set[:valid_index_count]
-
+        '''
+        image_set_index_file = os.path.join(self.data_path, self.image_set_main_folder, 'annotations', self.image_set + '.lst')
+        assert os.path.exists(image_set_index_file), 'Path does not exist: {}'.format(image_set_index_file)
+        image_set_index = []
+        with open(image_set_index_file, 'r') as f:
+            for line in f:
+                if len(line) > 1:
+                    label = line.strip().split('\t')
+                    image_set_index.append(label[1])
+        return image_set_index        
     def image_path_from_index(self, index):
         """
         find the image path from given index
