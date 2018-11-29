@@ -2,7 +2,7 @@
 MXNET_VERSION: "mxnet"
 output_path: "/home/qileimail123/data0/RetinaImg/DR_COCO/output/deeplabv1deformable"
 symbol: resnet_v1_101_deeplab_dcn
-gpus: '2'
+gpus: '1,2,3'
 SCALES:
 - 1024
 - 2048
