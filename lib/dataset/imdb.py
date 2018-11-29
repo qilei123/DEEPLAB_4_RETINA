@@ -179,7 +179,7 @@ class IMDB(object):
         """
         print 'append flipped images to segdb'
         assert self.num_images == len(segdb)
-        pool = Pool(processes=1)
+        pool = Pool(processes=8)
         pool_result = []
         for i in range(self.num_images):
             seg_rec = segdb[i]
