@@ -90,8 +90,8 @@ class Retina(IMDB):
         :param index: the given index
         :return: the image path
         """
-        index_folder = index.split('_')[0]
-        image_file = os.path.join(self.data_path, 'gtFine', self.image_set_sub_folder, index_folder, index + '_gtFine_labelTrainIds.png')
+        filename = index.split('_')[0]+'_labelIds.png'
+        image_file = os.path.join(self.data_path, self.image_set_sub_folder, filename)
         assert os.path.exists(image_file), 'Path does not exist: {}'.format(image_file)
         return image_file
 
