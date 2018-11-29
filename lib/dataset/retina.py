@@ -15,7 +15,7 @@ from imdb import IMDB
 from PIL import Image
 
 class Retina(IMDB):
-    def __init__(self, image_set, root_path, dataset_path, result_path=None):
+    def __init__(self, image_set, root_path, dataset_path, num_classes, result_path=None):
         """
         fill basic information to initialize imdb
         :param image_set: leftImg8bit_train, etc
@@ -30,7 +30,7 @@ class Retina(IMDB):
         self.image_set_sub_folder = image_set_sub_folder
         self.root_path = root_path
         self.data_path = dataset_path
-        self.num_classes = 19
+        self.num_classes = num_classes
         self.image_set_index = self.load_image_set_index()
         self.num_images = len(self.image_set_index)
         print 'num_images', self.num_images
@@ -48,6 +48,7 @@ class Retina(IMDB):
 
         #Collection all subfolders
         image_set_main_folder_path = os.path.join(self.data_path, self.image_set_main_folder, self.image_set_sub_folder)
+        print 'image_set_main_folder_path:'+image_set_main_folder_path
         image_name_set = [filename for parent, dirname, filename in os.walk(image_set_main_folder_path)]
         image_name_set = list(itertools.chain.from_iterable(image_name_set))
         index_set = ['' for x in range(len(image_name_set))]

@@ -75,7 +75,7 @@ def train_net(args, ctx, pretrained, epoch, prefix, begin_epoch, end_epoch, lr, 
     # load dataset and prepare imdb for training
     image_sets = [iset for iset in config.dataset.image_set.split('+')]
     segdbs = [load_gt_segdb(config.dataset.dataset, image_set, config.dataset.root_path, config.dataset.dataset_path,
-                            result_path=final_output_path, flip=config.TRAIN.FLIP)
+                            result_path=final_output_path, flip=config.TRAIN.FLIP,num_classes=config.dataset.NUM_CLASSES)
               for image_set in image_sets]
     segdb = merge_segdb(segdbs)
 

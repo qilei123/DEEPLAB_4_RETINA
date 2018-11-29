@@ -69,7 +69,7 @@ def test_deeplab():
     sym_instance = eval(config.symbol + '.' + config.symbol)()
     sym = sym_instance.get_symbol(config, is_train=False)
 
-    imdb = eval(dataset)(image_set, root_path, dataset_path, result_path=final_output_path)
+    imdb = eval(dataset)(image_set, root_path, dataset_path, config.dataset.NUM_CLASSES ,result_path=final_output_path)
     segdb = imdb.gt_segdb()
 
     # get test data iter
