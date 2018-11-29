@@ -1,0 +1,1 @@
+python experiments/deeplab/deeplab_train_test.py --cfg experiments/deeplab/cfgs/resnet_v1_101_dr_retina_trainval_rfcn_dcn_end2end_ohem.yaml
