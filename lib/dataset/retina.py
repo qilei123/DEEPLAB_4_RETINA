@@ -63,6 +63,7 @@ class Retina(IMDB):
 
         return index_set[:valid_index_count]
         '''
+        
         image_set_index_file = os.path.join(self.data_path, self.image_set_main_folder, 'annotations', self.image_set + '.lst')
         assert os.path.exists(image_set_index_file), 'Path does not exist: {}'.format(image_set_index_file)
         image_set_index = []
@@ -71,15 +72,15 @@ class Retina(IMDB):
                 if len(line) > 1:
                     label = line.strip().split('\t')
                     image_set_index.append(label[1])
-        return image_set_index        
+        return image_set_index       
     def image_path_from_index(self, index):
         """
         find the image path from given index
         :param index: the given index
         :return: the image path
         """
-        index_folder = index.split('_')[0]
-        image_file = os.path.join(self.data_path, self.image_set_main_folder, self.image_set_sub_folder, index_folder, index + '_' + self.image_set_main_folder + '.png')
+        #index_folder = index.split('_')[0]
+        image_file = os.path.join(self.data_path, self.image_set_main_folder, os.path.basename(index) )
         assert os.path.exists(image_file), 'Path does not exist: {}'.format(image_file)
         return image_file
 
